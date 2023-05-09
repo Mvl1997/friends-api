@@ -6,6 +6,12 @@ import mongoose from "mongoose";
 const app = express();
 const port = process.env.PORT || 3000;
 const url = process.env.MONGO_URI;
+const { FRONTEND_URL } = process.env;
+const corsOptions = {
+  origin: FRONTEND_URL,
+};
+app.use(express.json());
+app.use(cors(corsOptions));
 
 mongoose
   .connect(url, {
