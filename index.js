@@ -23,8 +23,7 @@ const schema = new mongoose.Schema(
   {
     name: String,
     age: String,
-    hobby: String,
-    
+    photo: String,
   },
   { collection: "FriendsApi" }
 );
