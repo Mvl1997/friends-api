@@ -2,7 +2,7 @@ import dotenv from "dotenv";
 dotenv.config();
 import express from "express";
 import mongoose from "mongoose";
-import { cors } from "cors";
+import cors from "cors";
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -11,6 +11,7 @@ const { FRONTEND_URL } = process.env;
 const corsOptions = {
   origin: FRONTEND_URL,
 };
+
 app.use(express.json());
 app.use(cors(corsOptions));
 
