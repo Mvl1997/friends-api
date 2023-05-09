@@ -24,6 +24,7 @@ const schema = new mongoose.Schema(
     name: String,
     age: String,
     photo: String,
+    body: String,
     likes: { type: Number, default: 0 },
   },
   { collection: "FriendsApi" }
