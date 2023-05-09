@@ -39,6 +39,21 @@ app.get("/", async (req, res) => {
   res.json(posts);
 });
 
+app.get("/:id", async (req, res) => {
+  const { id } = req.params;
+  try {
+    const post = await Post.findById(id);
+    if (!post) {
+      res.status(404).json({ message: "Friend not found" });
+      return;
+    }
+    res.json(post);
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ message: "Internal server error" });
+  }
+});
+
 app.post("/", async (req, res) => {
   const post = new Post(req.body);
   await post.save();
