@@ -10,6 +10,7 @@ const url = process.env.MONGO_URI;
 const { FRONTEND_URL } = process.env;
 const corsOptions = {
   origin: FRONTEND_URL,
+  methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
 };
 
 app.use(express.json());
