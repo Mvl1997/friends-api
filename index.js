@@ -13,8 +13,8 @@ const corsOptions = {
   methods: ["PATCH", "GET", "POST", "PUT", "DELETE"],
 };
 
-app.use(express.json());
 app.use(cors(corsOptions));
+app.use(express.json());
 
 mongoose
   .connect(url, {
@@ -40,8 +40,6 @@ const schema = new mongoose.Schema(
 );
 
 const Post = mongoose.model("Post", schema);
-
-app.use(express.json());
 
 app.get("/", async (req, res) => {
   const posts = await Post.find();
